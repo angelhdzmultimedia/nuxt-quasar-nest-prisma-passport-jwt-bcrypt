@@ -7,7 +7,7 @@ import {
 import { users } from 'src/database';
 import { User } from 'src/types/user';
 import { LoginData } from './dtos/login-data';
-import { compare, hash } from 'bcrypt';
+import { compare, hash } from 'bcryptjs';
 import { RegisterData } from './dtos/register-data';
 import { randomUUID } from 'node:crypto';
 
