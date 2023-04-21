@@ -7,7 +7,8 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "pnpm install:all && concurrently \"pnpm start:dev\" \"pnpm -C client dev\"",
+    "install:all": "pnpm install && pnpm -C client install",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -33,6 +34,7 @@
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.1",
+    "concurrently": "^8.0.1",
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^5.0.0",
@@ -64,19 +66,13 @@
     "typescript": "^4.7.4"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
+    "moduleFileExtensions": ["js", "json", "ts"],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
+    "collectCoverageFrom": ["**/*.(t|j)s"],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
