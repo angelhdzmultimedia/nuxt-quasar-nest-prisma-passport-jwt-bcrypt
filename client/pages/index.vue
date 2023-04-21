@@ -8,6 +8,8 @@ const auth = useAuthStore();
 
 <template>
   <NuxtLayout name="main">
-    <span class="text-h1">Hello, {{ auth.profile?.name ?? 'Guest' }}!</span>
+    <main class="column items-center justify-center full-width full-height">
+      <span class="text-h4">Hello, {{ auth.profile?.name ?? 'Guest' }}!</span>
+    </main>
   </NuxtLayout>
 </template>
